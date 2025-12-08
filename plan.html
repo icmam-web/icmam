@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de Estudios - ICMAM</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================================= */
+/* VARIABLES & RESET (MISMO DISEÑO) */
+/* ========================================================= */
+:root{
+  --accent:#2b6cb0;
+  --accent-dark:#1e4e8c;
+  --light:#f7fafc;
+  --dark:#1a202c;
+  --muted:#6b7280;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(0,0,0,0.1);
+  --max-width:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Inter', sans-serif;
+  background:white;
+  color:var(--dark);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Playfair Display', serif;}
+
+/* ========================================================= */
+/* HEADER / NAV */
+/* ========================================================= */
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+  box-shadow:0 2px 20px rgba(0,0,0,0.05);
+}
+.nav{
+  max-width:var(--max-width);
+  margin:auto;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  display:flex;align-items:center;gap:12px;
+}
+.logo-symbol{
+  width:48px;height:48px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:700;
+  font-size:18px;
+  box-shadow:var(--shadow);
+}
+nav ul{
+  display:flex;
+  gap:20px;
+  list-style:none;
+}
+nav a{
+  text-decoration:none;
+  color:var(--dark);
+  font-weight:600;
+}
+.cta-btn{
+  background:var(--accent);
+  color:white !important;
+  padding:12px 20px;
+  border-radius:var(--radius);
+  font-weight:700;
+  transition:.3s;
+}
+.cta-btn:hover{background:var(--accent-dark);}
+
+/* ========================================================= */
+/* HERO */
+/* ========================================================= */
+.hero{
+  padding-top:130px;
+  padding-bottom:80px;
+  background:linear-gradient(180deg,#fff, #eef4ff);
+}
+.hero-inner{
+  max-width:var(--max-width);
+  margin:auto;
+  text-align:center;
+  padding:20px;
+}
+.hero h1{
+  font-size:44px;
+  margin-bottom:18px;
+}
+
+/* ========================================================= */
+/* CONTENEDOR GENERAL */
+/* ========================================================= */
+.section{
+  max-width:var(--max-width);
+  margin:auto;
+  padding:80px 20px;
+}
+.section h2{
+  font-size:34px;
+  margin-bottom:20px;
+}
+
+/* ========================================================= */
+/* TARJETAS / SECCIONES */
+/* ========================================================= */
+.box{
+  background:white;
+  padding:30px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  margin-bottom:40px;
+}
+
+ul{margin-left:20px;margin-top:10px;}
+
+/* ========================================================= */
+/* TABLA PLAN DE ESTUDIOS */
+/* ========================================================= */
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:16px;
+  margin-top:20px;
+}
+th{
+  background:var(--accent-dark);
+  color:white;
+  padding:14px;
+}
+td{
+  border:1px solid #d2d6dc;
+  padding:14px;
+  background:#f8fafc;
+}
+
+/* ========================================================= */
+/* FOOTER */
+/* ========================================================= */
+footer{
+  margin-top:60px;
+  background:#f1f5f9;
+  padding:40px 20px;
+  text-align:center;
+}
+footer p{color:var(--muted);font-size:14px;}
+
+</style>
+</head>
+
+<body>
+
+<!-- ========================================================= -->
+<!-- HEADER -->
+<!-- ========================================================= -->
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-symbol"><img src="ICMAM.png" alt="Descripción de la imagen" width="60"></div>
+      <div>
+        <strong>Instituto Cristiano</strong><br>
+        <small style="color:var(--muted)">Música y Artes Ministeriales</small>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a class="cta-btn" href="#contacto">Inscríbete</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Plan de Estudios</h1>
+    <p style="color:var(--muted);font-size:18px;">
+      Formación profunda, bíblica, musical y ministerial con excelencia.
+    </p>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- OBJETIVO -->
+<!-- ========================================================= -->
+<section class="section">
+  <div class="box">
+    <h2>Objetivo General</h2>
+    <p>
+    Formar ministros de alabanza y músicos cristianos con una preparación integral —bíblica, espiritual y artística— que les permita desarrollar un servicio excelente dentro de sus iglesias, dominando fundamentos teológicos, habilidades musicales, técnicas vocales, trabajo en equipo y liderazgo, con el fin de ministrar con sensibilidad, madurez y excelencia en cada área del ministerio de adoración.
+    </p>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- PLAN DE ESTUDIOS DETALLADO -->
+<!-- ========================================================= -->
+<section class="section">
+  <div class="box">
+    <h2>Plan de Estudios Detallado</h2>
+
+    <table>
+      <tr>
+        <th>Módulo</th>
+        <th>Contenido</th>
+        <th>Duración</th>
+      </tr>
+      <table>
+      <tr>
+        <th>Primer Trimestre</th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <tr>
+        <td><strong>1. Teología de la Adoración y Formación del Carácter Ministerial</strong></td>
+        <td>
+          - Teología de la adoración en AT y NT <br>
+          - El rol del adorador en la Iglesia<br>
+          - Ética, conducta y testimonio<br>
+          - Disciplina espiritual (devocional, oración, consagración)
+        </td>
+        <td>3 meses</td>
+      </tr>
+
+      <tr>
+        <td><strong>2. Fundamentos Musicales I (Teoría + Entrenamiento Auditivo I)</strong></td>
+        <td>
+          - Pentagrama, figuras rítmicas y compases<br>
+          - Escalas mayores y menores naturales<br>
+          - Progresiones I–IV–V y vi–IV–I–V<br>
+          - Entrenamiento auditivo: intervalos y reconocimiento de acordes
+        </td>
+        <td>3 meses</td>
+      </tr>
+
+      <tr>
+        <td><strong>3. Técnica vocal o Instrumental I (a elegir)</strong></td>
+        <td>
+          - Voz: respiración, resonancia, afinación, articulación <br>
+          - Instrumento: acordes fundamentales, ritmo y acompañamiento básico <br>
+          
+        </td>
+        <td>3 meses</td>
+      </tr>
+
+      <tr>
+        <td><strong>4. Teoría Musical II</strong></td>
+        <td>
+          - Acordes y progresiones <br>
+          - Modulación <br>
+          - Armonía aplicada a la alabanza <br>
+          - Composición básica
+        </td>
+        <td>45 horas</td>
+      </tr>
+
+      <tr>
+        <td><strong>5. Ensamble y Práctica Musical</strong></td>
+        <td>
+          - Trabajo en banda/ensamble <br>
+          - Dirección de alabanza <br>
+          - Montaje de repertorio <br>
+          - Técnicas de ensayo
+        </td>
+        <td>50 horas</td>
+      </tr>
+
+      <tr>
+        <td><strong>6. Técnica Vocal / Instrumental</strong></td>
+        <td>
+          - Respiración y proyección de voz <br>
+          - Afinación y técnica vocal <br>
+          - Dominio de instrumento principal <br>
+          - Interpretación ministerial
+        </td>
+        <td>45 horas</td>
+      </tr>
+
+      <tr>
+        <td><strong>7. Liderazgo Ministerial</strong></td>
+        <td>
+          - Liderazgo bíblico <br>
+          - Administración del ministerio <br>
+          - Ética pastoral <br>
+          - Comunicación efectiva
+        </td>
+        <td>30 horas</td>
+      </tr>
+
+      <tr>
+        <td><strong>8. Producción Musical y Artes</strong></td>
+        <td>
+          - Grabación básica <br>
+          - Uso de DAWs (software musical) <br>
+          - Programación de pistas <br>
+          - Introducción a artes creativas
+        </td>
+        <td>40 horas</td>
+      </tr>
+
+      <tr>
+        <td><strong>9. Proyecto Final Ministerial</strong></td>
+        <td>
+          - Proyecto musical o ministerial integrado <br>
+          - Presentación final pública <br>
+          - Evaluación teórica y práctica
+        </td>
+        <td>60 horas</td>
+      </tr>
+
+    </table>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- CONTACTO -->
+<!-- ========================================================= -->
+<section class="section" id="contacto">
+  <div class="box" style="text-align:center;">
+    <h2>¿Quieres obtener el plan completo en PDF?</h2>
+    <p style="color:var(--muted)">Contáctanos y te enviaremos toda la información.</p>
+
+    <a href="mailto:licmiguelsalazar.mbda@gmail.com" class="cta-btn" style="display:inline-block;margin-top:10px;">Solicitar información</a>
+    <br><br>
+    <a href="https://wa.me/9616543560" target="_blank" class="cta-btn" style="background:#25D366;">
+      Escribir por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+<footer>
+  <p><strong>Instituto Cristiano de Música y Artes Ministeriales</strong></p>
+  <p>© <span id="year"></span> Todos los derechos reservados</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
