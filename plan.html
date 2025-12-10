@@ -4,364 +4,802 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plan de Estudios - ICMAM</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
-/* ========================================================= */
-/* VARIABLES & RESET (MISMO DISEÑO) */
-/* ========================================================= */
-:root{
-  --accent:#2b6cb0;
-  --accent-dark:#1e4e8c;
-  --light:#f7fafc;
-  --dark:#1a202c;
-  --muted:#6b7280;
-  --radius:14px;
-  --shadow:0 10px 30px rgba(0,0,0,0.1);
-  --max-width:1200px;
+  /* NAVBAR igual al de index.html */
+.navbar {
+    background:#0a0a0a !important;
+    padding:15px 0;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Inter', sans-serif;
-  background:white;
-  color:var(--dark);
-  line-height:1.6;
-  overflow-x:hidden;
+body {
+    padding-top:80px; /* para que el contenido no quede debajo del navbar */
 }
-h1,h2,h3{font-family:'Playfair Display', serif;}
+.navbar-brand {
+    font-family:'Playfair Display', serif;
+    font-size:1.6rem;
+    letter-spacing:1px;
+}
+.nav-link {
+    font-size:1rem;
+    font-weight:500;
+    color:white !important;
+}
 
-/* ========================================================= */
-/* HEADER / NAV */
-/* ========================================================= */
-header{
-  position:fixed;
-  top:0;left:0;right:0;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(10px);
-  z-index:1000;
-  box-shadow:0 2px 20px rgba(0,0,0,0.05);
+body { background:#f0f2f8; font-family:'Inter', sans-serif; }
+
+/* PORTADA CON IMAGEN DE MÚSICA */
+.portada-premium{
+  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+  url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?fit=crop&w=1600&q=80')
+  center/cover;
+  height:320px;
+  padding:40px;
+  color:#fff;
+  margin-bottom:40px;
+  border-bottom:6px solid #d4af37;
+  box-shadow:0 4px 25px rgba(0,0,0,.45);
 }
-.nav{
-  max-width:var(--max-width);
-  margin:auto;
-  padding:20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.logo{
-  display:flex;align-items:center;gap:12px;
-}
-.logo-symbol{
-  width:48px;height:48px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-dark));
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
+
+.portada-titulo{
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem;
   font-weight:700;
-  font-size:18px;
-  box-shadow:var(--shadow);
+  text-shadow:0 4px 10px rgba(0,0,0,.6);
 }
-nav ul{
-  display:flex;
-  gap:20px;
-  list-style:none;
+
+.gold-line{
+  width:120px;
+  height:4px;
+  background:linear-gradient(90deg,#d4af37,#f7e99b,#d4af37);
+  margin:20px auto;
+  border-radius:4px;
 }
-nav a{
-  text-decoration:none;
-  color:var(--dark);
+
+.card{
+  border-radius:18px;
+  border:none;
+  background:white;
+  padding:35px;
+  box-shadow:0 6px 25px rgba(0,0,0,.12);
+  transition:.35s;
+  position:relative;
+}
+.card:hover{ transform:translateY(-6px); }
+
+.btn-elegant{
+  background:linear-gradient(135deg,#1a237e,#0d132f);
+  color:#f7e99b !important;
+  padding:12px 22px;
+  border-radius:12px;
   font-weight:600;
-}
-.cta-btn{
-  background:var(--accent);
-  color:white !important;
-  padding:12px 20px;
-  border-radius:var(--radius);
-  font-weight:700;
+  border:1px solid #d4af37;
   transition:.3s;
 }
-.cta-btn:hover{background:var(--accent-dark);}
-
-/* ========================================================= */
-/* HERO */
-/* ========================================================= */
-.hero{
-  padding-top:130px;
-  padding-bottom:80px;
-  background:linear-gradient(180deg,#fff, #eef4ff);
-}
-.hero-inner{
-  max-width:var(--max-width);
-  margin:auto;
-  text-align:center;
-  padding:20px;
-}
-.hero h1{
-  font-size:44px;
-  margin-bottom:18px;
+.btn-elegant:hover{
+  background:linear-gradient(135deg,#283593,#0a0a0a);
 }
 
-/* ========================================================= */
-/* CONTENEDOR GENERAL */
-/* ========================================================= */
-.section{
-  max-width:var(--max-width);
-  margin:auto;
-  padding:80px 20px;
-}
-.section h2{
-  font-size:34px;
-  margin-bottom:20px;
-}
-
-/* ========================================================= */
-/* TARJETAS / SECCIONES */
-/* ========================================================= */
-.box{
-  background:white;
-  padding:30px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  margin-bottom:40px;
-}
-
-ul{margin-left:20px;margin-top:10px;}
-
-/* ========================================================= */
-/* TABLA PLAN DE ESTUDIOS */
-/* ========================================================= */
-table{
-  width:100%;
-  border-collapse:collapse;
-  font-size:16px;
-  margin-top:20px;
-}
-th{
-  background:var(--accent-dark);
-  color:white;
-  padding:14px;
-}
-td{
-  border:1px solid #d2d6dc;
-  padding:14px;
-  background:#f8fafc;
-}
-
-/* ========================================================= */
-/* FOOTER */
-/* ========================================================= */
-footer{
-  margin-top:60px;
-  background:#f1f5f9;
-  padding:40px 20px;
-  text-align:center;
-}
-footer p{color:var(--muted);font-size:14px;}
-
+.modal-header{ background:#1a237e; color:white; }
 </style>
 </head>
-
 <body>
+<!-- NAVBAR -->
 
-<!-- ========================================================= -->
-<!-- HEADER -->
-<!-- ========================================================= -->
-<header>
-  <div class="nav">
-    <div class="logo">
-      <div class="logo-symbol"><img src="ICMAM.png" alt="Descripción de la imagen" width="60"></div>
-      <div>
-        <strong>Instituto Cristiano</strong><br>
-        <small style="color:var(--muted)">Música y Artes Ministeriales</small>
+<nav class="navbar navbar-dark navbar-expand-lg shadow-sm fixed-top">
+  <div class="container">
+
+<a class="navbar-brand" href="index.html">
+    <img src="ICMAM.png" alt="ICMAM Logo" style="height:60px; width:auto;">
+</a>    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto gap-2">
+        <li class="nav-item"><a class="nav-link" href="index.html #nosotros">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="plan.html">Plan de Estudios</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html #videos">Videos</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="galeria.html">Galería</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PORTADA CON IMAGEN DE MÚSICA -->
+<section class="portada-premium d-flex align-items-center justify-content-center text-center">
+  <div>
+    <h1 class="portada-titulo">Planes de Estudio</h1>
+    <p class="lead">Instituto Cristiano de Música y Artes Ministeriales</p>
+    <div class="gold-line"></div>
+  </div>
+</section>
+
+<div class="container pb-5">
+  <div class="row g-4">
+
+    <!-- CURSO MÚSICA MINISTERIAL -->
+    <div class="col-md-6">
+      <div class="card text-center p-4">
+         <center><img src="ICMAM.png" alt="ICMAM Logo" style="height:60px; width:60px;"></center>
+        <h3>Curso  <br>Música Ministerial</h3>
+        <button class="btn-elegant mt-3" data-bs-toggle="modal" data-bs-target="#cursoModal">Ver Plan</button>
       </div>
     </div>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a class="cta-btn" href="#contacto">Inscríbete</a></li>
-      </ul>
-    </nav>
+    <!-- CERTIFICACIÓN -->
+    <div class="col-md-6">
+      <div class="card text-center p-4">
+                 <center><img src="ICMAM.png" alt="ICMAM Logo" style="height:60px; width:60px;"></center>
+        <h3>Certificación en Música y Artes Ministeriales</h3>
+        <button class="btn-elegant mt-3" data-bs-toggle="modal" data-bs-target="#certModal">Ver Plan</button>
+      </div>
+    </div>
+
+    <!-- BACHILLERATO -->
+    <div class="col-md-6">
+      <div class="card text-center p-4">
+                 <center><img src="ICMAM.png" alt="ICMAM Logo" style="height:60px; width:60px;"></center>
+        <h3>Licenciatura en Música y Artes Ministeriales</h3>
+        <button class="btn-elegant mt-3" data-bs-toggle="modal" data-bs-target="#bachModal">Ver Plan</button>
+      </div>
+    </div>
+
+    <!-- LICENCIATURA -->
+<br>
+     <div class="col-md-6">
+      <div class="card text-center p-4">
+        <CENTER><img src="UCMV.png" alt="ICMAM Logo" style="height:60px; width:60px;"></CENTER>
+        <h3>Bachillerato en <br>Teología</h3>
+        <button class="btn-elegant mt-3" data-bs-toggle="modal" data-bs-target="#licModal">Ver Plan</button>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card text-center p-4">
+        <CENTER><img src="UCMV.png" alt="ICMAM Logo" style="height:60px; width:60px;"></CENTER>
+        <h3>Licenciatura en Teología</h3>
+        <button class="btn-elegant mt-3" data-bs-toggle="modal" data-bs-target="#licModal">Ver Plan</button>
+      </div>
+    </div>
+
   </div>
-</header>
+</div>
 
-<!-- ========================================================= -->
-<!-- HERO -->
-<!-- ========================================================= -->
-<section class="hero">
-  <div class="hero-inner">
-    <h1>Plan de Estudios</h1>
-    <p style="color:var(--muted);font-size:18px;">
-      Formación profunda, bíblica, musical y ministerial con excelencia.
-    </p>
+<!-- MODALES -->
+
+<!-- CURSO -->
+<div class="modal fade" id="cursoModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Instituto Cristiano de Música y Artes Ministeriales<br>Curso de Música Ministerial</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <h6><b>Objetivo general:</b> <br>Dotar al alumno de una base sólida en teoría musical inicial y establecer fundamentos espirituales del adorador según la Biblia.<br><br><b>Duración:</b> 8 meses</h6>
+                <table class="table table-bordered">
+          <thead><tr><th>Bimestre</th><th>Materia</th><th>Temas</th></tr></thead>
+          <tbody>
+       <tr>
+    <td><b>1</b></td>
+    <td>Musical Básica y Lectura</td>
+    <td>
+        <ul>
+            <li>Unidad 1 — Introducción al lenguaje musical</li>
+            <li>Unidad 2 — Ritmo práctico</li>
+            <li>Unidad 3 — Intervalos y escalas</li>
+            <li>Unidad 4 — Acordes básicos</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Fundamentos Bíblicos del Músico y Adorador</td>
+    <td>
+        <ul>
+            <li>Unidad 1 — ¿Qué es la adoración según la Biblia?</li>
+            <li>Unidad 2 — Los músicos en la Escritura</li>
+            <li>Unidad 3 — Actitud y carácter del adorador</li>
+            <li>Unidad 4 — Propósito de la música en la iglesia</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td><b>2</b></td>
+    <td>Instrumento Ministerial I</td>
+    <td>
+        <ul>
+            <li>Unidad 1 — Técnica y postura</li>
+            <li>Unidad 2 — Acordes para alabanza</li>
+            <li>Unidad 3 — Ritmos ministeriales</li>
+            <li>Unidad 4 — Acompañamiento básico</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Alabanza Congregacional I — Interpretación y Ensamble</td>
+    <td>
+        <ul>
+            <li>Unidad 1 — Estructura de canciones cristianas</li>
+            <li>Unidad 2 — Roles en el ensamble</li>
+            <li>Unidad 3 — Dinámicas espirituales y musicales</li>
+            <li>Unidad 4 — Preparación de repertorio congregacional</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td><b>3</b></td>
+    <td>Armonía Ministerial I — Música Cristiana</td>
+    <td>
+        <ul>
+            <li>Unidad 1 — Cuatríadas iniciales</li>
+            <li>Unidad 2 — Tensiones y acordes usados en alabanza</li>
+            <li>Unidad 3 — Progresiones modernas</li>
+            <li>Unidad 4 — Rearmonización básica</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Liderazgo de Alabanza I — Formación del Líder Ministerial</td>
+    <td>
+        <ul>
+            <li>Unidad 1 — Identidad del líder de alabanza</li>
+            <li>Unidad 2 — Dirección musical básica</li>
+            <li>Unidad 3 — Preparación espiritual y musical</li>
+            <li>Unidad 4 — Práctica de ensayos</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td><b>4</b></td>
+    <td>Producción Musical para Alabanza (Básico)</td>
+    <td>
+        <ul>
+            <li>Unidad 1 — Home studio cristiano</li>
+            <li>Unidad 2 — Grabación básica</li>
+            <li>Unidad 3 — Mezcla inicial</li>
+            <li>Unidad 4 — Sonido para iglesia</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Proyecto Final de Alabanza y Adoración</td>
+    <td>
+        <ul>
+            <li>Unidad 1 — Preparación espiritual</li>
+            <li>Unidad 2 — Preparación musical</li>
+            <li>Unidad 3 — Presentación final</li>
+            <li>Unidad 4 — Informe final</li>
+        </ul>
+    </td>
+</tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- ========================================================= -->
-<!-- OBJETIVO -->
-<!-- ========================================================= -->
-<section class="section">
-  <div class="box">
-    <h2>Objetivo General</h2>
-    <p>
-    Formar ministros de alabanza y músicos cristianos con una preparación integral —bíblica, espiritual y artística— que les permita desarrollar un servicio excelente dentro de sus iglesias, dominando fundamentos teológicos, habilidades musicales, técnicas vocales, trabajo en equipo y liderazgo, con el fin de ministrar con sensibilidad, madurez y excelencia en cada área del ministerio de adoración.
-    </p>
+<!-- CERTIFICACIÓN -->
+<div class="modal fade" id="certModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Instituto Cristiano de Música y Artes Ministeriales<br>Certificación en Ministerio de Alabanza</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <h6><b>Objetivo general:</b><br> Desarrollar bases sólidas en teoría musical, entrenamiento auditivo, introducción al instrumento y formación bíblica de un músico adorador.<br><br><b>Duración:</b> 1 año</h6>
+        <table class="table table-bordered">
+          <thead><tr><th>Trimestre</th><th>Materia</th><th>Temas</th></tr></thead>
+          <tbody>
+          <tr>
+    <td><b>1</b></td>
+    <td>Teoría Musical I — Fundamentos y Lectura</td>
+    <td>
+        <ul>
+<li>Naturaleza del sonido (timbre, tono, intensidad, duración)</li>
+<li>Introducción al pentagrama y claves</li>
+<li>Lectura en clave de sol</li>
+<li>Figuras rítmicas: redonda a semicorchea</li>
+<li>Compases simples (2/4, 3/4, 4/4)</li>
+<li>Intervalos simples: justos, mayores y menores</li>
+<li>Escalas mayores</li>
+<li>Tonalidades con hasta 3 alteraciones</li>
+<li>Construcción de triadas mayores y menores</li>
+<li>Introducción al cifrado americano (C, Dm, Em, F, G, Am)</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Fundamentos Bíblicos del Músico y Adorador</td>
+    <td>
+        <ul>
+<li>Identidad del músico cristiano</li>
+<li>El modelo bíblico de los levitas</li>
+<li>El corazón del adorador</li>
+<li>Propósito de la música en la iglesia</li>
+<li>Carácter, humildad y servicio</li>
+<li>Música como ministerio, no solo arte</li> 
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Instrumento Principal</td>
+    <td>
+        <ul>
+<li>Técnica básica (postura, relajación y digitación)
+<li>Escalas mayores en 1 octava</li>
+<li>Acordes primarios (I–IV–V)</li>
+<li>Acompañamiento básico en adoración</li>
+<li>Lectura sencilla en instrumento</li>
+<li>Introducción al ritmo congregacional</li>
+        </ul>
+    </td>
+</tr>
+
+      <tr>
+    <td><b>2</b></td>
+    <td>Teoría Musical II — Armonía Básica Funcional</td>
+    <td>
+        <ul>
+<li>Escalas menores (natural, armónica, melódica)</li>
+<li>Sistema tonal y funciones armónicas (T–S–D)</li>
+<li>Cadencias básicas</li>
+<li>Acordes disminuidos y aumentados</li>
+<li>Inversiones de triadas</li>
+<li>Progresiones comunes (I–V–vi–IV, ii–V–I)</li>
+<li>Cifrado americano intermedio (C/E, D/F#, etc.)</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Ensamble de Alabanza I — Interpretación Congregacional</td>
+    <td>
+        <ul>
+<li>Roles de cada instrumento en una banda cristiana</li>
+<li>Acompañamiento fluido (piano/guitarra)</li>
+<li>Estructura típica de canciones de adoración</li>
+<li>Dinámicas: subidas, bajadas y “build up”</li>
+<li>Canto a 2 voces</li>
+<li>Preparación de repertorio congregacional</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Doctrina Cristiana y Alabanza Bíblica</td>
+    <td>
+        <ul>
+<li>Doctrina de Dios y la adoración</li>
+<li>Cristo como centro de la alabanza</li>
+<li>El Espíritu Santo y el ministerio musical</li>
+<li>La Iglesia y su función adoradora</li>
+<li>Bases teológicas de un servicio de adoración</li>
+<li>Música y santidad</li>
+        </ul>
+    </td>
+</tr>
+   <tr>
+    <td><b>3</b></td>
+    <td>Armonía Moderna I — Géneros Cristiano</td>
+    <td>
+        <ul>
+<li>Cuatríadas (maj7, m7, 7, m7♭5)</li>
+<li>Progresiones avanzadas</li>
+<li>Sustitutos armónicos básicos</li>
+<li>Acordes con tensiones (add9, sus2, sus4)</li>
+<li>Sonoridad del worship moderno</li>
+<li>Texturas armónicas</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Análisis Musical de Alabanza</td>
+    <td>
+        <ul>
+<li>Estructura típica de canciones cristianas</li>
+<li>Análisis de letras: teología y mensaje</li>
+<li>Progresiones típicas del worship</li>
+<li>Construcción de clímax musical</li>
+<li>Identificación de motivos y frases</li>
+<li>Análisis de canciones contemporáneas (Elevation, Hillsong, Miel San Marcos, etc.)</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Liderazgo Ministerial y Dirección de Alabanza</td>
+    <td>
+        <ul>
+<li>Liderazgo espiritual en la música</li>
+<li>Comunicación con el pastor y el equipo</li>
+<li>Cómo dirigir un servicio completo</li>
+<li>Discernimiento espiritual en la adoración</li>
+<li>Organización de ensayos</li>
+<li>Ética y madurez de un líder de música</li>
+        </ul>
+    </td>
+</tr>   <tr>
+    <td><b>4</b></td>
+    <td>Composición y Arreglos para Alabanza</td>
+    <td>
+        <ul>
+<li>Composición de letras cristianas</li>
+<li>Creación de melodías inspiradas</li>
+<li>Estructura de canción moderna</li>
+<li>Arreglos simples para voces</li>
+<li>Arreglos para banda de alabanza</li>
+<li>Planificación de repertorio</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Producción Musical para Iglesia y Grupos de Adoración</td>
+    <td>
+        <ul>
+<li>Home Studio cristiano (equipo básico)</li>
+<li>Grabación de voces e instrumentos</li>
+<li>Uso de pads, secuencias y ambientación</li>
+<li>Introducción a mezclas básicas</li>
+<li>Micrófonos para iglesia</li>
+<li>Software DAW nivel básico</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Práctica Ministerial y Proyecto Final</td>
+    <td>
+        <ul>
+<li>Preparación de un servicio completo</li>
+<li>Ensayo con ensamble</li>
+<li>Presentación final ante comunidad o iglesia</li>
+<li>Evaluación ministerial</li>
+<li>Informe espiritual y musical</li>
+        </ul>
+    </td>
+</tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- ========================================================= -->
-<!-- PLAN DE ESTUDIOS DETALLADO -->
-<!-- ========================================================= -->
-<section class="section">
-  <div class="box">
-    <h2>Plan de Estudios</h2>
-  <table>
-      <tr>
-        <th>Primer Trimestre</th>
-        <th></th>
-        <th></th>
-      </tr>
-  </table>
-    <table>
-      <tr>
-        <th>Módulo</th>
-        <th>Contenido</th>
-        <th>Duración</th>
-      </tr>
-    
-      <tr>
-        <td><strong>1. Teología de la Adoración y Formación del Carácter Ministerial</strong></td>
-        <td>
-          - Teología de la adoración en AT y NT <br>
-          - El rol del adorador en la Iglesia<br>
-          - Ética, conducta y testimonio<br>
-          - Disciplina espiritual (devocional, oración, consagración)
-        </td>
-        <td>3 meses</td>
-      </tr>
+<div class="modal fade" id="bachModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Instituto Cristiano de Música y Artes Ministeriales <br>Licenciatura en Música y Artes Ministeriales</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <h6><b>Objetivo general:</b><br>Brindar al estudiante una base sólida de conocimientos musicales, entrenamiento auditivo, dominio del instrumento y formación bíblica completa del músico y adorador.<br><br><b>Duración:</b> 1 año 4 meses</h6>
+        <table class="table table-bordered">
+          <thead><tr><th>Cuatrimestre</th><th>Materia</th><th>Temas</th></tr></thead>
+          <tbody>
+                <tr>
+    <td><b>1</b></td>
+    <td>Teoría Musical I — Fundamentos Tonales</td>
+    <td>
+        <ul>
+<li>Naturaleza del sonido: tono, timbre, intensidad, duración</li>
+<li>Lectura musical en clave de sol y fa</li>
+<li>Figuras rítmicas: redonda hasta semicorchea</li>
+<li>Ligaduras, puntillos, síncopas y contratiempos</li>
+<li>Compases simples (2/4, 3/4, 4/4)</li>
+<li>Intervalos: construcción, clasificación y reconocimiento</li>
+<li>Escalas mayores completas</li>
+<li>Tonalidades y armaduras hasta 3 sostenidos/bemoles</li>
+<li>Construcción de acordes mayores y menores</li>
+<li>Introducción al cifrado americano (C, Dm, G, F, etc.)</li>
+        </ul>
+    </td>
+</tr>
 
-      <tr>
-        <td><strong>2. Fundamentos Musicales I (Teoría + Entrenamiento Auditivo I)</strong></td>
-        <td>
-          - Pentagrama, figuras rítmicas y compases<br>
-          - Escalas mayores y menores naturales<br>
-          - Progresiones I–IV–V y vi–IV–I–V<br>
-          - Entrenamiento auditivo: intervalos y reconocimiento de acordes
-        </td>
-        <td>3 meses</td>
-      </tr>
+<tr>
+    <td></td>
+    <td>Entrenamiento Auditivo I — Oído Relativo Básico</td>
+    <td>
+        <ul>
+<li>Canto de grados conjuntos</li>
+<li>Intervalos melódicos ascendentes: segunda mayor, tercera mayor, quinta justa</li>
+<li>Dictados rítmicos básicos</li>
+<li>Reconocimiento auditivo de acorde mayor y menor</li>
+<li>Ejercicios de afinación con piano o diapasón</li>
+        </ul>
+    </td>
+</tr>
 
-      <tr>
-        <td><strong>3. Técnica vocal o Instrumental I (a elegir)</strong></td>
-        <td>
-          - Voz: respiración, resonancia, afinación, articulación <br>
-          - Instrumento: acordes fundamentales, ritmo y acompañamiento básico <br>
-          
-        </td>
-        <td>3 meses</td>
-      </tr>
+<tr>
+    <td></td>
+    <td>Instrumento Principal I</td>
+    <td>
+        <ul>
+<li>Técnica básica: postura, digitación, relajación</li>
+<li>Escalas mayores (1 octava)</li>
+<li>Acordes mayores y menores en estado fundamental</li>
+<li>Patrones simples de acompañamiento</li>
+<li>Lectura básica en pentagrama</li>
+<li>Uso del metrónomo</li>
+        </ul>
+    </td>
+</tr>
 
-      <tr>
-        <td><strong>4. Teoría Musical II</strong></td>
-        <td>
-          - Acordes y progresiones <br>
-          - Modulación <br>
-          - Armonía aplicada a la alabanza <br>
-          - Composición básica
-        </td>
-        <td>45 horas</td>
-      </tr>
-
-      <tr>
-        <td><strong>5. Ensamble y Práctica Musical</strong></td>
-        <td>
-          - Trabajo en banda/ensamble <br>
-          - Dirección de alabanza <br>
-          - Montaje de repertorio <br>
-          - Técnicas de ensayo
-        </td>
-        <td>50 horas</td>
-      </tr>
-
-      <tr>
-        <td><strong>6. Técnica Vocal / Instrumental</strong></td>
-        <td>
-          - Respiración y proyección de voz <br>
-          - Afinación y técnica vocal <br>
-          - Dominio de instrumento principal <br>
-          - Interpretación ministerial
-        </td>
-        <td>45 horas</td>
-      </tr>
+<tr>
+    <td></td>
+    <td>Fundamentos Bíblicos del Músico y Adorador</td>
+    <td>
+        <ul>
+Temas desarrollados:
+<li>Identidad del adorador en la Biblia</li>
+<li>La música en la historia bíblica: levitas, salmos, David</li>
+<li>El propósito espiritual de la música</li>
+<li>Carácter del ministro cristiano</li>
+<li>Disciplina espiritual del músico</li>
+<li>Humildad y servicio como base del llamado</li>
+<li>Música como herramienta de edificación</li>
+        </ul>
+    </td>
+</tr>
 
       <tr>
-        <td><strong>7. Liderazgo Ministerial</strong></td>
-        <td>
-          - Liderazgo bíblico <br>
-          - Administración del ministerio <br>
-          - Ética pastoral <br>
-          - Comunicación efectiva
-        </td>
-        <td>30 horas</td>
-      </tr>
+    <td><b>2</b></td>
+    <td>Teoría Musical II — Armonía Funcional I</td>
+    <td>
+        <ul>
+<li>Escalas menores (natural, armónica y melódica)</li>
+<li>Funciones armónicas: Tónica, Subdominante, Dominante</li>
+<li>Acordes disminuidos y aumentados</li>
+<li>Inversiones de triadas</li>
+<li>Progresiones básicas (I–V–vi–IV, ii–V–I)</li>
+<li>Cambios de tonalidad cercanos</li>
+<li>Cadencias perfectas, imperfectas, plagal y rota</li>
+<li>Cifrado americano intermedio (Dm/F, C/E, etc.)</li>
+        </ul>
+    </td>
+</tr>
 
-      <tr>
-        <td><strong>8. Producción Musical y Artes</strong></td>
-        <td>
-          - Grabación básica <br>
-          - Uso de DAWs (software musical) <br>
-          - Programación de pistas <br>
-          - Introducción a artes creativas
-        </td>
-        <td>40 horas</td>
-      </tr>
+<tr>
+    <td></td>
+    <td>Entrenamiento Auditivo II — Percepción Intermedia</td>
+    <td>
+        <ul>
+<li>Dictados melódicos de 4–8 compases</li>
+<li>Identificación de intervalos armónicos</li>
+<li>Reconocimiento de acordes disminuidos y aumentados</li>
+<li>Identificación auditiva de progresiones básicas</li>
+<li>Memoria tonal auditiva</li>
+        </ul>
+    </td>
+</tr>
 
-      <tr>
-        <td><strong>9. Proyecto Final Ministerial</strong></td>
-        <td>
-          - Proyecto musical o ministerial integrado <br>
-          - Presentación final pública <br>
-          - Evaluación teórica y práctica
-        </td>
-        <td>60 horas</td>
-      </tr>
+<tr>
+    <td></td>
+    <td>Ensamble Musical I — Alabanza y Adoración</td>
+    <td>
+        <ul>
+<li>Trabajo en equipo musical</li>
+<li>Armonización vocal (segundas y terceras)</li>
+<li>Coordinación entre instrumentos</li>
+<li>Dinámicas, transiciones y acompañamiento congregacional</li>
+<li>Preparación de repertorio cristiano</li>
+        </ul>
+    </td>
+</tr>
 
-    </table>
+<tr>
+    <td></td>
+    <td>Doctrinas Fundamentales de la Fe Cristiana</td>
+    <td>
+        <ul>
+<li>La Triunidad</li>
+<li>La Salvación: gracia, fe y arrepentimiento</li>
+<li>Doctrina de la Iglesia</li>
+<li>El papel del Espíritu Santo en la adoración</li>
+<li>Doctrina de las Escrituras</li>
+<li>Fundamentos de la adoración congregacional</li>
+        </ul>
+    </td>
+</tr>
+
+   <tr>
+    <td><b>3</b></td>
+    <td>Armonía III — Armonía Moderna y Avanzada</td>
+    <td>
+        <ul>
+<li>Cuatríadas: Maj7, m7, 7, m7b5</li>
+<li>Dominantes secundarios (V/V, V/ii, V/vi…)</li>
+<li>Sustituto tritonal</li>
+<li>Acordes extendidos: 9, 11, 13</li>
+<li>Acordes prestados del modo menor</li>
+<li>Rearmonización moderna</li>
+<li>Progresiones tipo gospel / worship</li>
+<li>Poliacordes</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Análisis Musical I — Tonal y Contemporáneo</td>
+    <td>
+        <ul>
+<li>Motivos, células y desarrollo temático</li>
+<li>Frases y períodos</li>
+<li>Forma binaria y ternaria</li>
+<li>Progresión armónica funcional</li>
+<li>Análisis de música congregacional contemporánea</li>
+<li>Análisis de himnos clásicos</li>
+<li>Análisis de números romanos aplicado</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Instrumento — Nivel Profesional</td>
+    <td>
+        <ul>
+<li>Voicings avanzados</li>
+<li>Armonización profesional</li>
+<li>Patrones modernos de acompañamiento</li>
+<li>Split chords, subdivisión rítmica</li>
+<li>Pads y ambientaciones desde el instrumento</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Liderazgo Ministerial y Adoración Bíblica</td>
+    <td>
+        <ul>
+<li>Liderazgo basado en el carácter</li>
+<li>Dirección espiritual del ministerio de música</li>
+<li>Cómo preparar un servicio de adoración completo</li>
+<li>Pastoral musical</li>
+<li>Discernimiento y sensibilidad al Espíritu</li>
+<li>Ética del líder cristiano</li>
+        </ul>
+    </td>
+</tr> 
+
+ <tr>
+    <td><b>4</b></td>
+    <td>Composición y Arreglos Ministeriales</td>
+    <td>
+        <ul>
+<li>Estructura de canción cristiana moderna</li>
+<li>Composición de letras cristianas</li>
+<li>Creación de melodías inspiradas</li>
+<li>Arreglos para voces (SATB y coros)</li>
+<li>Arreglos para banda de alabanza</li>
+<li>Escritura instrumental</li>
+<li>Uso de dinámicas en adoración</li>
+<li>Ensamble completo</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Producción Musical Cristiana</td>
+    <td>
+        <ul>
+<li>Grabación de voces</li>
+<li>Home studio</li>
+<li>Conceptos de mezcla</li>
+<li>Micrófonos para instrumentos y voz</li>
+<li>Pads, secuencias, loops</li>
+<li>Uso de Ableton / Cubase / Logic</li>
+<li>Mezcla básica para iglesia</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Dirección Coral y Ensamble Avanzado</td>
+    <td>
+        <ul>
+<li>Técnica de dirección</li>
+<li>Señales y compases</li>
+<li>Lectura coral</li>
+<li>Ensamble vocal avanzado</li>
+<li>Preparación para conciertos</li>
+<li>Organización de presentaciones ministeriales</li>
+        </ul>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>Ministerio Cristiano Práctico — Proyecto Final</td>
+    <td>
+        <ul>
+<li>Práctica ministerial supervisada</li>
+<li>Diseño completo de un servicio de adoración</li>
+<li>Preparación del ensamble</li>
+<li>Presentación final en vivo</li>
+<li>Informe teológico-musical</li>
+        </ul>
+    </td>
+</tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- ========================================================= -->
-<!-- CONTACTO -->
-<!-- ========================================================= -->
-<section class="section" id="contacto">
-  <div class="box" style="text-align:center;">
-    <h2>¿Quieres obtener el plan completo en PDF?</h2>
-    <p style="color:var(--muted)">Contáctanos y te enviaremos toda la información.</p>
-
-    <a href="mailto:licmiguelsalazar.mbda@gmail.com" class="cta-btn" style="display:inline-block;margin-top:10px;">Solicitar información</a>
-    <br><br>
-    <a href="https://wa.me/9616543560" target="_blank" class="cta-btn" style="background:#25D366;">
-      Escribir por WhatsApp
-    </a>
+<!-- BACHILLERATO -->
+<div class="modal fade" id="bachModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Universidad Cristiana Manantial de Vida <br>Bachillerato en Teología</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <h6>Duración: 1 año 6 meses</h6>
+        <table class="table table-bordered">
+          <thead><tr><th>Trimestre</th><th>Materia</th><th>Temas</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Introducción Teológica</td><td>Doctrinas básicas</td></tr>
+            <tr><td>2</td><td>Antiguo Testamento</td><td>Pentateuco, historia</td></tr>
+            <tr><td>3</td><td>Nuevo Testamento</td><td>Evangelios, epístolas</td></tr>
+            <tr><td>4</td><td>Hermenéutica</td><td>Interpretación bíblica</td></tr>
+            <tr><td>5</td><td>Historia de la Iglesia</td><td>Primeros siglos</td></tr>
+            <tr><td>6</td><td>Ministerio Práctico</td><td>Predicación, servicio</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- ========================================================= -->
-<!-- FOOTER -->
-<!-- ========================================================= -->
-<footer>
-  <p><strong>Instituto Cristiano de Música y Artes Ministeriales</strong></p>
-  <p>© <span id="year"></span> Todos los derechos reservados</p>
-</footer>
+<!-- LICENCIATURA -->
+<div class="modal fade" id="licModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Universidad Cristiana Manantial de Vida <br>Licenciatura en Teología</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <h6>Duración: 1 año 6 meses</h6>
+        <table class="table table-bordered">
+          <thead><tr><th>Trimestre</th><th>Materia</th><th>Temas</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Teología Sistemática I</td><td>Dios, Cristo, Espíritu</td></tr>
+            <tr><td>2</td><td>Teología Sistemática II</td><td>Iglesia, salvación</td></tr>
+            <tr><td>3</td><td>Exégesis Bíblica</td><td>Griego básico</td></tr>
+            <tr><td>4</td><td>Homilética Avanzada</td><td>Predicación</td></tr>
+            <tr><td>5</td><td>Consejería Cristiana</td><td>Pastoral</td></tr>
+            <tr><td>6</td><td>Proyecto Ministerial</td><td>Tesis, práctica</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
